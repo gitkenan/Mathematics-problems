@@ -18,7 +18,7 @@ for n in range(1, 100000):
 		pass
 
 # factors = []
-
+# to make a set of factors which make up palindromes
 # for p in palindromes:
 # 	for n in range(100, 1000):
 # 		if p % n == 0:
@@ -28,5 +28,5 @@ for n in range(1, 100000):
 
 
 print palindromes
-print "The sum of all the palindromes between 100,000 and 1,000,000 is", sum(palindromes)
+print "The sum of all the palindromes between 1 and 100,000 is", sum(palindromes)
 
