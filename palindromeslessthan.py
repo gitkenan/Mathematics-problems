@@ -2,7 +2,7 @@
 
 palindromes = []
 
-for n in range(100000, 1000000):
+for n in range(1, 100000):
 
 	temp = n
 	rev = 0
