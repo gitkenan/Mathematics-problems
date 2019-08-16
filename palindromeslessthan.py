@@ -17,18 +17,16 @@ for n in range(1, 100000):
 	else:
 		pass
 
-factors = []
+# factors = []
 
-for p in palindromes:
-	for n in range(100, 1000):
-		if p % n == 0:
-			factors.append(n)
-		else:
-			pass
+# for p in palindromes:
+# 	for n in range(100, 1000):
+# 		if p % n == 0:
+# 			factors.append(n)
+# 		else:
+# 			pass
 
 
 print palindromes
 print "The sum of all the palindromes between 100,000 and 1,000,000 is", sum(palindromes)
 
-
-print factors
