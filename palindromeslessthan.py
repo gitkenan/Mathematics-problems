@@ -17,6 +17,9 @@ for n in range(1, 100000):
 	else:
 		pass
 
+print palindromes
+print "The sum of all the palindromes between 1 and 100,000 is", sum(palindromes)
+
 # factors = []
 # to make a set of factors which make up palindromes
 # for p in palindromes:
@@ -27,6 +30,5 @@ for n in range(1, 100000):
 # 			pass
 
 
-print palindromes
-print "The sum of all the palindromes between 1 and 100,000 is", sum(palindromes)
+
 
