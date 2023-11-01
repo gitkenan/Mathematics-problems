@@ -1,38 +1,40 @@
 import turtle
-PROGNAME = 'Sierpinski triangle'
 
-myPen = turtle.Turtle()
-myPen.speed(8)
-myPen.pencolor('blue')
-# to define the three corners of the triangle
-points = [[-175,-125],[0,175],[175,-125]] 
+my_pen = turtle.Turtle()
+my_pen.speed(8)
+my_pen.pencolor('blue')
+# corners [of the triangle] name shortened for cleanliness
+corners = [[-175,-125] ,[0,175], [175,-125]] 
 
-def Midpoint(p1,p2):
-     return ( (p1[0]+p2[0]) / 2, (p1[1] + p2[1]) / 2) 
-# recursively drawing smaller triangles
-def Sierpinski(points,depth):
-
-     myPen.up()
-     myPen.goto(points[0][0],points[0][1])
-     myPen.down()
-     myPen.goto(points[1][0],points[1][1])
-     myPen.goto(points[2][0],points[2][1])
-     myPen.goto(points[0][0],points[0][1])
+def midpoint_between(p1, p2):
+     return ( (p1[0] + p2[0])/2, (p1[1] + p2[1])/2 ) 
+     
+# to recursively draw smaller triangles
+def sierpinskize(corners, depth):
+     my_pen.up()
+     my_pen.goto(corners[0][0],corners[0][1])
+     my_pen.down()
+     my_pen.goto(corners[1][0],corners[1][1])
+     my_pen.goto(corners[2][0],corners[2][1])
+     my_pen.goto(corners[0][0],corners[0][1])
      # for the function to include itself until depth isn't there
      if depth>0:
-          Sierpinski([points[0],
-                        Midpoint(points[0], points[1]),
-                        Midpoint(points[0], points[2])],
+          sierpinskize([corners[0],
+                        midpoint_between(corners[0], corners[1]),
+                        midpoint_between(corners[0], corners[2])],
                    depth-1)
-          Sierpinski([points[1],
-                        Midpoint(points[0], points[1]),
-                        Midpoint(points[1], points[2])],
+          sierpinskize([corners[1],
+                        midpoint_between(corners[0], corners[1]),
+                        midpoint_between(corners[1], corners[2])],
                    depth-1)
-          Sierpinski([points[2],
-                         Midpoint(points[2], points[1]),
-                         Midpoint(points[0], points[2])],
+          sierpinskize([corners[2],
+                         midpoint_between(corners[2], corners[1]),
+                         midpoint_between(corners[0], corners[2])],
                    depth-1)
      else:
           pass
-# to run the drawing
-Sierpinski(points,6)
+def main():
+    sierpinskize(corners, 6)
+
+if __name__ == '__main__':
+     main()
